@@ -1,16 +1,12 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import CategoriesView from '@/views/CategoriesView.vue';
+import CategoriesView from '@/views/CategoryView.vue';
+import { ROUTES_PATH, ROUTES_NAME } from '@/constant/routes/routes';
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'Categories',
-    component: CategoriesView,
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
+    path: ROUTES_PATH.CATEGORY,
+    name: ROUTES_NAME.CATEGORY,
+    component: () => import(/* webpackChunkName: "category" */ '../views/CategoryView.vue'),
   },
   {
     path: '/:catchAll(.*)',
