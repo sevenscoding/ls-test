@@ -20,6 +20,11 @@ export const getCategoryProducts = async (id?: string | string[]) => {
   }
 };
 
-export const getProducts = () => {
-  console.log('get');
+export const getProductDetails = async (id?: string | string[]) => {
+  try {
+    const res = await fetch(`${process.env.VUE_APP_PRODUCTS_URL}/${id}`, { ...config, method: 'GET' });
+    return await res.json();
+  } catch (e) {
+    return e;
+  }
 };

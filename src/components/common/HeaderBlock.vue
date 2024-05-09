@@ -1,33 +1,29 @@
 <template>
-  <div :class="$style.wrapper">
-    <router-link :class="$style.logo" to="/">
-      Super Shop
+  <header :class="$style.wrapper">
+    <router-link :class="$style.link" to="/">
+      <LogoIcon />
     </router-link>
-  </div>
+    <CartNav />
+  </header>
 </template>
 
 <script setup lang="ts">
-
+import LogoIcon from '@/components/common/LogoIcon.vue';
+import CartNav from '@/components/cart/CartNav.vue';
 </script>
 
 <style module lang="scss">
 .wrapper {
-  margin: 30px 0;
+  margin: 20px 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #879bb91a;
 }
 
-.logo {
-  font-size: 30px;
-  font-weight: var(--font-weight-bold);
-  color: var(--black-color);
-  border: 3px solid  var(--red-color);
-  border-radius: 8px;
+.link {
   text-decoration: none;
-  background-color: var(--white-color);
-  padding: 10px;
-  transition: .25s;
-  &:hover {
-    color: var(--white-color);
-    background-color: var(--red-color);
-  }
 }
 </style>

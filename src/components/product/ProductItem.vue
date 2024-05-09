@@ -3,7 +3,7 @@
     <img v-if="imgUrl" :class="$style.img" :src="imgUrl" :alt="title">
     <h2 :class="$style.text"> {{ title }} </h2>
     <div :class="$style.price"> {{ price }}₾</div>
-    <ButtonDefault />
+    <ButtonDefault @click.prevent="$emit('addItem')"/>
   </div>
 </template>
 
@@ -11,7 +11,7 @@
 import { defineProps } from 'vue';
 import ButtonDefault from '@/components/common/ButtonDefault.vue';
 
-const props = defineProps<{
+defineProps<{
   title?: string
   imgUrl?: string
   price?: number
@@ -58,5 +58,6 @@ const props = defineProps<{
   color: var(--red-color);
   border-bottom: 1px solid transparent;
   margin-bottom: 20px;
+  pointer-events: none;
 }
 </style>

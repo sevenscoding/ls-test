@@ -13,13 +13,14 @@
             :class="$style.link"
             v-for="item in data"
             :key="item?.id"
-            :to='`products/${item?.id}`'
+            :to='`/product/${item?.id}`'
           >
             <ProductItem
               :title="item?.name"
               :id="item?.id"
               :imgUrl="item?.imageUrl"
               :price="item?.price"
+              @addItem="addItem(item)"
             />
           </router-link>
         </template>
@@ -33,21 +34,25 @@ import { getCategoryProducts } from '@/api';
 import { useRoute } from 'vue-router';
 import { FulfillingBouncingCircleSpinner } from 'epic-spinners';
 import ProductItem from '@/components/product/ProductItem.vue';
+import { useCartStore } from '@/store/cart';
 
 const isLoading = ref(false);
 const data = ref(null);
-
+const { addToCart } = useCartStore();
 const route = useRoute();
 
 onBeforeMount(async () => {
   isLoading.value = true;
   const { items } = await getCategoryProducts(route.params.id);
-  console.log(items);
   if (items.length) {
     data.value = items;
   }
   isLoading.value = false;
 });
+
+const addItem = (item: any) => {
+  addToCart(item);
+};
 </script>
 
 <style module lang="scss">
