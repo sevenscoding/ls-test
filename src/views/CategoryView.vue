@@ -7,15 +7,23 @@
     color="#e81c1c"
   />
   <div :class="$style.wrapper">
-    <template v-if="data?.length">
-      <CategoryItem
-        v-for="item in data"
-        :key="item?.id"
-        :title="item?.name"
-        :imgUrl="item?.imageUrl"
-        @click="goTo(item?.id)"
-      />
-    </template>
+    <div :class="$style.block">
+      <template v-if="data?.length">
+        <router-link
+          :class="$style.link"
+          v-for="item in data"
+          :key="item?.id"
+          :to='`products/${item?.id}`'
+        >
+          <CategoryItem
+            :title="item?.name"
+            :id="item?.id"
+            :imgUrl="item?.imageUrl"
+          />
+        </router-link>
+      </template>
+    </div>
+
   </div>
 </template>
 
@@ -23,20 +31,14 @@
 import { ref, onBeforeMount } from 'vue';
 import { RadarSpinner } from 'epic-spinners';
 import CategoryItem from '@/components/category/CategoryItem.vue';
-import { getAllCategories, getCategory } from '@/api';
+import { getAllCategories } from '@/api';
 
 const isLoading = ref(false);
 const data = ref(null);
 
-const goTo = async (id: string) => {
-  const categories = await getCategory(id);
-  console.dir(categories);
-};
-
 onBeforeMount(async () => {
   isLoading.value = true;
   const { items } = await getAllCategories();
-  console.log(items);
   if (items.length) {
     data.value = items;
   }
@@ -48,11 +50,14 @@ onBeforeMount(async () => {
 .wrapper {
   width: 1140px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  padding-bottom: 40px;
+  & > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
 }
 
 .loader {
@@ -60,5 +65,9 @@ onBeforeMount(async () => {
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+.link {
+  text-decoration: none;
 }
 </style>

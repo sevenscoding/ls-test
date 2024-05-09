@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import CategoryView from '@/views/CategoryView.vue';
+import ProductsView from '@/views/ProductsView.vue';
 import { ROUTES_PATH, ROUTES_NAME } from '@/constant/routes/routes';
 
 const routes: Array<RouteRecordRaw> = [
@@ -7,6 +8,11 @@ const routes: Array<RouteRecordRaw> = [
     path: ROUTES_PATH.CATEGORY,
     name: ROUTES_NAME.CATEGORY,
     component: CategoryView,
+  },
+  {
+    path: ROUTES_PATH.PRODUCTS,
+    name: ROUTES_NAME.PRODUCTS,
+    component: ProductsView,
   },
   {
     path: '/:catchAll(.*)',

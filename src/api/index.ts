@@ -11,13 +11,10 @@ export const getAllCategories = async () => {
   }
 };
 
-export const getCategory = async (id?: string) => {
+export const getCategoryProducts = async (id?: string | string[]) => {
   try {
-    const res2 = await fetch(`${process.env.VUE_APP_PRODUCTS_URL}/products?category=${id}`, { ...config, method: 'GET' });
-    const data = await res2.json();
-    console.log('----');
-    console.log(data);
-    return data;
+    const res = await fetch(`${process.env.VUE_APP_PRODUCTS_URL}?category=${id}`, { ...config, method: 'GET' });
+    return await res.json();
   } catch (e) {
     return e;
   }

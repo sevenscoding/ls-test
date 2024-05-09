@@ -1,6 +1,6 @@
 export const ROUTES_PATH = Object.freeze({
   CATEGORY: '/category',
-  PRODUCT: '/product',
+  PRODUCTS: '/products/:id',
   DETAIL: '/detail',
 });
 
