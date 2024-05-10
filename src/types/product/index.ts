@@ -1,6 +1,6 @@
 export interface Product {
   attributes?: AttributeValue[];
-  borderInfo?: BorderInfo; // Not in Docs
+  borderInfo?: BorderInfo;
   categories?: CategoriesInfo[];
   categoryIds?: number[];
   combinations?: Variation[];
@@ -24,11 +24,11 @@ export interface Product {
   files?: ProductFile[];
   fixedShippingRate?: number;
   fixedShippingRateOnly?: boolean;
-  galleryImages?: GalleryImages[]; // Not in Docs
-  googleItemCondition?: string; // Not in Docs
-  hdThumbnailUrl?: string; // Not in Docs
+  galleryImages?: GalleryImages[];
+  googleItemCondition?: string;
+  hdThumbnailUrl?: string;
   id: number;
-  imageUrl?: string; // Not in Docs
+  imageUrl?: string;
   inStock?: boolean;
   isGiftCard?: boolean;
   isSampleProduct?: boolean;
@@ -38,24 +38,24 @@ export interface Product {
   nameTranslated?: Translations;
   nameYourPriceEnabled?: boolean;
   options?: ProductOption[];
-  originalImage?: OriginalImage; // Not in Docs
-  originalImageUrl?: string; // Not in Docs
+  originalImage?: OriginalImage;
+  originalImageUrl?: string;
   price?: number;
-  priceInProductList?: number; // Not in Docs
+  priceInProductList?: number;
   productClassId?: number;
-  productCondition?: string; // Not in Docs
+  productCondition?: string;
   relatedProducts?: RelatedProducts;
   seoDescription?: string;
   seoTitle?: string;
   shipping?: ShippingSettings;
   showOnFrontpage?: number;
   sku?: string;
-  smallThumbnailUrl?: string; // Not in Docs
+  smallThumbnailUrl?: string;
   tax?: TaxInfo;
-  thumbnailUrl?: string; // Not in Docs
+  thumbnailUrl?: string
   unlimited?: boolean;
   updateTimestamp?: number;
-  updated?: string; // Not in Docs
+  updated?: string;
   url?: string;
   warningLimit?: number;
   weight?: number;

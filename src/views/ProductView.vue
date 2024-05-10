@@ -30,11 +30,11 @@ const { addToCart } = useCartStore();
 const route = useRoute();
 
 const isLoading = ref(false);
-const data = ref(null);
+let data: Product;
 
 onBeforeMount(async () => {
   isLoading.value = true;
-  data.value = await getProductDetails(route.params.id);
+  data = await getProductDetails(route.params.id);
   isLoading.value = false;
 });
 

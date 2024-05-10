@@ -52,7 +52,6 @@ onBeforeMount(async () => {
 });
 
 const addItem = (item: Product) => {
-  console.log(item);
   addToCart(item);
 };
 </script>
