@@ -28,10 +28,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onBeforeMount } from 'vue';
+import { ref, onBeforeMount, defineAsyncComponent } from 'vue';
 import { RadarSpinner } from 'epic-spinners';
-import CategoryItem from '@/components/category/CategoryItem.vue';
 import { getAllCategories } from '@/api';
+
+const CategoryItem = defineAsyncComponent(() => import('@/components/category/CategoryItem.vue'));
 
 const isLoading = ref(false);
 const data = ref(null);

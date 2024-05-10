@@ -18,12 +18,13 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import { onBeforeMount, ref } from 'vue';
+import { onBeforeMount, ref, defineAsyncComponent } from 'vue';
 import { getProductDetails } from '@/api';
 import { FulfillingBouncingCircleSpinner } from 'epic-spinners';
-import ButtonDefault from '@/components/common/ButtonDefault.vue';
 import { useCartStore } from '@/store/cart';
 import { Product } from '@/types/product';
+
+const ButtonDefault = defineAsyncComponent(() => import('@/components/common/ButtonDefault.vue'));
 
 const { addToCart } = useCartStore();
 

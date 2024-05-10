@@ -16,11 +16,12 @@
 </template>
 
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue';
 import { useCartStore } from '@/store/cart';
 import { useRouter } from 'vue-router';
-import ButtonDefault from '@/components/common/ButtonDefault.vue';
-import ButtonPrimary from '@/components/common/ButtonPrimary.vue';
 
+const ButtonDefault = defineAsyncComponent(() => import('@/components/common/ButtonDefault.vue'));
+const ButtonPrimary = defineAsyncComponent(() => import('@/components/common/ButtonPrimary.vue'));
 const cartStore = useCartStore();
 const router = useRouter();
 

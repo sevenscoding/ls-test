@@ -29,13 +29,14 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeMount, ref } from 'vue';
+import { onBeforeMount, ref, defineAsyncComponent } from 'vue';
 import { getCategoryProducts } from '@/api';
 import { useRoute } from 'vue-router';
 import { FulfillingBouncingCircleSpinner } from 'epic-spinners';
-import ProductItem from '@/components/product/ProductItem.vue';
 import { useCartStore } from '@/store/cart';
 import { Product } from '@/types/product';
+
+const ProductItem = defineAsyncComponent(() => import('@/components/product/ProductItem.vue'));
 
 const isLoading = ref(false);
 const data = ref(null);
