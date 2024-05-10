@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
-const props = defineProps<{
+defineProps<{
   title?: string
   imgUrl?: string
 }>();

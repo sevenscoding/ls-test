@@ -38,8 +38,8 @@ const data = ref(null);
 
 onBeforeMount(async () => {
   isLoading.value = true;
-  const { items } = await getAllCategories();
-  if (items.length) {
+  const items = await getAllCategories();
+  if (items?.length) {
     data.value = items;
   }
   isLoading.value = false;

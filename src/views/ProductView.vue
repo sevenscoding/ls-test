@@ -23,6 +23,7 @@ import { getProductDetails } from '@/api';
 import { FulfillingBouncingCircleSpinner } from 'epic-spinners';
 import ButtonDefault from '@/components/common/ButtonDefault.vue';
 import { useCartStore } from '@/store/cart';
+import { Product } from '@/types/product';
 
 const { addToCart } = useCartStore();
 
@@ -33,13 +34,11 @@ const data = ref(null);
 
 onBeforeMount(async () => {
   isLoading.value = true;
-  const details = await getProductDetails(route.params.id);
-  console.log(details);
-  data.value = details;
+  data.value = await getProductDetails(route.params.id);
   isLoading.value = false;
 });
 
-const addItem = (item: any) => {
+const addItem = (item: Product) => {
   addToCart(item);
 };
 </script>

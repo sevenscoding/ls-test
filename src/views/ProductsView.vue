@@ -35,6 +35,7 @@ import { useRoute } from 'vue-router';
 import { FulfillingBouncingCircleSpinner } from 'epic-spinners';
 import ProductItem from '@/components/product/ProductItem.vue';
 import { useCartStore } from '@/store/cart';
+import { Product } from '@/types/product';
 
 const isLoading = ref(false);
 const data = ref(null);
@@ -43,14 +44,15 @@ const route = useRoute();
 
 onBeforeMount(async () => {
   isLoading.value = true;
-  const { items } = await getCategoryProducts(route.params.id);
+  const items = await getCategoryProducts(route.params.id);
   if (items.length) {
     data.value = items;
   }
   isLoading.value = false;
 });
 
-const addItem = (item: any) => {
+const addItem = (item: Product) => {
+  console.log(item);
   addToCart(item);
 };
 </script>
