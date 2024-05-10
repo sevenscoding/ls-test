@@ -6,12 +6,12 @@
   :size="120"
   color="#e81c1c"
 />
-<div :class="$style.wrapper">
+<div v-if="!isLoading" :class="$style.wrapper">
   <img v-if="data?.imageUrl" :class="$style.image" :src="data?.imageUrl" :alt="data?.name">
   <div :class="$style.block">
     <div :class="$style.name"> {{ data?.name }} </div>
     <div :class="$style.description" v-html="data?.description"></div>
-    <ButtonDefault v-if="!isLoading" @click="addItem(data)"/>
+    <ButtonDefault @click="addItem(data)"/>
   </div>
 </div>
 </template>

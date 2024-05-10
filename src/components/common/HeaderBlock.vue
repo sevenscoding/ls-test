@@ -3,13 +3,19 @@
     <router-link :class="$style.link" to="/">
       <LogoIcon />
     </router-link>
-    <CartNav />
+    <CartNav v-if="isNotCartPage" />
   </header>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+import { ROUTES_NAME } from '@/constant/routes/routes';
 import LogoIcon from '@/components/common/LogoIcon.vue';
 import CartNav from '@/components/cart/CartNav.vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const isNotCartPage = computed(() => route.name !== ROUTES_NAME.CART);
 </script>
 
 <style module lang="scss">

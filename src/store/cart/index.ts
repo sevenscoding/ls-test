@@ -12,6 +12,12 @@ export const useCartStore = defineStore('cart', {
     addToCart(item: never): void {
       this.items.push(item);
     },
+    deleteItem(key: never): void {
+      this.items.splice(key, 1);
+    },
+    clearState(): void {
+      this.items = [];
+    },
   },
   getters: {
     amount: (state) => state.items.length,

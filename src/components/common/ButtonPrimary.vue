@@ -10,22 +10,22 @@ export interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  text: 'Buy',
+  text: 'Place order',
 });
 </script>
 
 <style module lang="scss">
 .button {
-  width: 140px;
-  height: 40px;
-  border: 1px solid var(--red-color);
+  width: 210px;
+  height: 50px;
+  border: 1px solid var(--blue-font);
   border-radius: 8px;
   font-size: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
   outline: none;
-  background: var(--red-color);
+  background: var(--blue-font);
   color: var(--white-color);
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
@@ -33,7 +33,7 @@ withDefaults(defineProps<Props>(), {
   transition: .25s;
   &:hover {
     background-color: transparent;
-    color: var(--red-color);
+    color: var(--blue-font);
   }
 }
 </style>

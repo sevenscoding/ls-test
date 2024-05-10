@@ -1,8 +1,8 @@
 <template>
-  <div :class="$style.cart">
+  <router-link to="/cart" :class="$style.cart">
     <img :class="$style.img" src="@/assets/img/cart.svg" alt="cart navigation button">
     <div :class="$style.count"> {{ cartStore.amount }} </div>
-  </div>
+  </router-link>
 </template>
 
 <script setup lang="ts">
